@@ -16,31 +16,96 @@ namespace SummarizeTempsObjects
         public int AverageTemperature()
         {
             // add logic to calculate the average
-            return 0; // <-- Replace this with the actual average
+            int average = -1;
+
+            if (_temperatures != null && _temperatures.Count > 0)
+            {
+                int sum = 0;
+                int count = 0;
+
+                for (int i = 0; i < _temperatures.Count; i++)
+                {
+                    sum += _temperatures[i];
+                    count++;
+                }
+
+                if (count > 0)
+                {
+                    average = sum / count;
+                }
+            }
+
+            return average; // <-- Replace this with the actual average
         }
 
         public int TempsAboveThreshold(int threshold)
         {
             // add logic to calculate temps above the threshold
-            return 0; // <-- Replace this with the number
+            int countAboveThreshold = 0;
+
+            if (_temperatures != null && _temperatures.Count > 0)
+            {
+                for (int i = 0; i < _temperatures.Count; i++)
+                {
+                    if (_temperatures[i] > threshold)
+                    {
+                        countAboveThreshold++;
+                    }
+                }
+            }
+
+            return countAboveThreshold; // <-- Replace this with the number
         }
 
         public int TempsBelowThreshold(int threshold)
         {
             // add logic to calculate and return temps below the threshold
-            return 0; // <-- Replace this with the number
+            int countBelowThreshold = 0;
+
+            if (_temperatures != null && _temperatures.Count > 0)
+            {
+                for (int i = 0; i < _temperatures.Count; i++)
+                {
+                    if (_temperatures[i] < threshold)
+                    {
+                        countBelowThreshold++;
+                    }
+                }
+            }
+
+            return countBelowThreshold; // <-- Replace this with the number
         }
 
         public int TempsAtThreshold(int threshold)
         {
             // add logic to calculate and return temps at the threshold
-            return 0; // <-- Replace this with the number
+            int countAtThreshold = 0;
+
+            if (_temperatures != null && _temperatures.Count > 0)
+            {
+                for (int i = 0; i < _temperatures.Count; i++)
+                {
+                    if (_temperatures[i] == threshold)
+                    {
+                        countAtThreshold++;
+                    }
+                }
+            }
+
+            return countAtThreshold; // <-- Replace this with the number
         }
 
         public int NumberOfTemperatures()
         {
             // add logic to return the number of temparature readings
-            return 0; // <-- Replace this with the number
+            int count = 0;
+
+            if (_temperatures != null && _temperatures.Count > 0)
+            {
+                count = _temperatures.Count;
+            }
+
+            return count; // <-- Replace this with the number
         }
     }
 }
